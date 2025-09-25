@@ -1,0 +1,9 @@
+package com.markinkostya.laboratorywork_8.repository;
+
+import com.markinkostya.laboratorywork_8.entity.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+
+    Role findByName(String name);
+}
