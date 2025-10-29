@@ -41,7 +41,6 @@ public class SecurityController {
                                BindingResult result,
                                Model model) {
         User existingUser = userService.findUserByEmail(userDto.getEmail());
-        //log.info(existingUser.toString());
         if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
             result.rejectValue("email", null, "На этот адрес электронной почты уже зарегистрирована учетная запись.");
         }

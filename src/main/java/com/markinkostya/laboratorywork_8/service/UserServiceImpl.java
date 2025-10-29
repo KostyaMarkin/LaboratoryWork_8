@@ -5,6 +5,7 @@ import com.markinkostya.laboratorywork_8.entity.Role;
 import com.markinkostya.laboratorywork_8.entity.User;
 import com.markinkostya.laboratorywork_8.repository.RoleRepository;
 import com.markinkostya.laboratorywork_8.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -42,10 +44,14 @@ public class UserServiceImpl implements UserService {
         }
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
+
     }
 
     @Override
-    public User findUserByEmail(String email){ return userRepository.findByEmail(email); }
+    public User findUserByEmail(String email){
+        log.info("Finding user by email: " + email);
+        return userRepository.findByEmail(email); }
+
 
     @Override
     public List<UserDto> findAllUsers(){

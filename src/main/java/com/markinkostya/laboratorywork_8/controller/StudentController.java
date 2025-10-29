@@ -31,7 +31,7 @@ public class StudentController {
 
     @GetMapping("/addStudentForm")
     public ModelAndView addStudentForm(){
-        ModelAndView mav = new ModelAndView("add-students-from");
+        ModelAndView mav = new ModelAndView("add-student-form");
         Student student = new Student();
         mav.addObject("student",student);
         return mav;
